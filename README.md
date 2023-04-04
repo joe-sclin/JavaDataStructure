@@ -1,10 +1,11 @@
 # Demonstration of implementing Java Data Structures 
 
 * Data structure and OOP are foundation of programming, implementing data structure from scratch is a good practice of basic skills 
-* Class BasicNode is abstract class for different data structures
+* Class BasicNode is abstract class for data structures
   * 3 attributes: content, predecessor and successor
   * 3 abstract functions to get each attributes
 * Class SimpleNode extended BasicNode and implemented abstract functions
+* Class LinearContainer contains inner class SequentialNode to implement abstract class BasicNode
 * Each data structure inherited BasicNode / SimpleNode for its own implementation by overriding
 
 ##  Four essential components for Object oriented programming (OOP) in Java
@@ -19,7 +20,7 @@
 
 ## Data structures
 - [X] Linked list
-- [ ] Stack
+- [X] Stack
 - [ ] Queue
 - [ ] Array
 - [ ] Graph
