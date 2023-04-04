@@ -10,15 +10,6 @@ public class Stack<T> extends LinearContainer<T> {
         size = 1;
         Top = temp;
     }
-    public int getsize(){
-        return size;
-    }
-    public SequentialNode<T> peek(){
-        return Top;
-    }
-    public Boolean isEmpty(){
-        return (size == 0);
-    }
     public void push(T newData){
         SequentialNode<T> temp = new SequentialNode<>(newData);
         if (size > 0) {

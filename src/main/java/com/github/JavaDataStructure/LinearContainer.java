@@ -30,4 +30,13 @@ public class LinearContainer<T>{
     protected int size;
     protected SequentialNode<T> Top;
     protected SequentialNode<T> Bottom;
+    public int getsize(){
+        return size;
+    }
+    public SequentialNode<T> peek(){
+        return Top;
+    }
+    public Boolean isEmpty(){
+        return (size == 0);
+    }
 }

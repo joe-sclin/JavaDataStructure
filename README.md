@@ -21,7 +21,7 @@
 ## Data structures
 - [X] Linked list
 - [X] Stack
-- [ ] Queue
+- [X] Queue
 - [ ] Array
 - [ ] Graph
 - [ ] Tree
