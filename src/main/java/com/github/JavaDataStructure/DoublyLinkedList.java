@@ -30,6 +30,7 @@ public class DoublyLinkedList<T> extends SimpleNode<T> {    // inherit simple no
     public void clear(){   // Remove all nodes
         head = null;
         tail = null;
+        size = 0;
     }
     public void append(T input){
         SimpleNode<T> new_node = new SimpleNode<>(input);
@@ -69,36 +70,40 @@ public class DoublyLinkedList<T> extends SimpleNode<T> {    // inherit simple no
     public void insert(T input_data, int index){     // index starts at 0, index of new node after insertion = index
         if ((index > size) || (index < 0)){
             throw new IndexOutOfBoundsException("Invalid index input");
-        }
-        if (index == 0) {
-            prepend(input_data);
-        } else if (index == size){
-            append(input_data);
         } else {
-            SimpleNode<T> pre_insert_node = head;
-            for (int i = 0; i < index - 1; i++){
-                pre_insert_node = pre_insert_node.getSuccessor();
+            if (index == 0) {
+                prepend(input_data);
+            } else if (index == size) {
+                append(input_data);
+            } else {
+                SimpleNode<T> pre_insert_node = head;
+                for (int i = 0; i < index - 1; i++) {
+                    pre_insert_node = pre_insert_node.getSuccessor();
+                }
+                SimpleNode<T> post_insert_node = pre_insert_node.getSuccessor();
+                SimpleNode<T> new_node = new SimpleNode<>(input_data);
+                new_node.setPredecessor(pre_insert_node);
+                new_node.setSuccessor(post_insert_node);
             }
-            SimpleNode<T> post_insert_node = pre_insert_node.getSuccessor();
-            SimpleNode<T> new_node = new SimpleNode<>(input_data);
-            new_node.setPredecessor(pre_insert_node);
-            new_node.setSuccessor(post_insert_node);
+            size ++;
         }
     }
-    public void delete(int index){
-        if ((index > size - 1) || (index < 0)){
+    public void delete(int index) {
+        if ((index > size - 1) || (index < 0)) {
             throw new IndexOutOfBoundsException("Invalid index input");
-        }
-        if (index == 0) {
-            head = head.getSuccessor();
-        } else if (index == size - 1){
-            tail = tail.getPredecessor();
         } else {
-            SimpleNode<T> pre_delete_node = head;
-            for (int i = 0; i < index - 1; i++){
-                pre_delete_node = pre_delete_node.getSuccessor();
+            if (index == 0) {
+                head = head.getSuccessor();
+            } else if (index == size - 1) {
+                tail = tail.getPredecessor();
+            } else {
+                SimpleNode<T> pre_delete_node = head;
+                for (int i = 0; i < index - 1; i++) {
+                    pre_delete_node = pre_delete_node.getSuccessor();
+                }
+                pre_delete_node.setSuccessor(pre_delete_node.getSuccessor().getSuccessor());
             }
-            pre_delete_node.setSuccessor(pre_delete_node.getSuccessor().getSuccessor());
+            size --;
         }
     }
 }
