@@ -1,6 +1,6 @@
 # Demonstration of implementing Java Data Structures 
 
-* Data structure and OOP are foundation of programming, implementing data structure from scratch is a good practice of basic skills 
+* Data structure and OOP are foundation of programming, implementing data structure from scratch (not from java.util) is a good practice of basic skills
 * Class BasicNode is abstract class for data structures
   * 3 attributes: content, predecessor and successor
   * 3 abstract functions to get each attributes
@@ -22,6 +22,5 @@
 - [X] Linked list
 - [X] Stack
 - [X] Queue
-- [ ] Array
-- [ ] Graph
+- [X] Graph
 - [ ] Tree
