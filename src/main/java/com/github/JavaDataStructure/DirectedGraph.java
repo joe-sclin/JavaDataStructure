@@ -2,8 +2,8 @@ package com.github.JavaDataStructure;
 //import java.util.ArrayList;
 import java.util.*;
 
-public class BasicGraph<T> {
-    private static class GraphNode<T> extends BasicNode<T> {
+public class DirectedGraph<T> {
+    protected static class GraphNode<T> extends BasicNode<T> {
         /*
         Extends BasicNode class to create GraphNode is not the best choice for implementation in practical
         It is only a demonstration of implementing an abstract class, and Polymorphism
@@ -42,7 +42,7 @@ public class BasicGraph<T> {
 
     private HashMap<T, GraphNode<T>> nodeList;  // Map to store node (key = content of node, value = GraphNode object)
 
-    public BasicGraph() {        // Constructor to create an empty graph
+    public DirectedGraph() {        // Constructor to create an empty graph
         nodeList = new HashMap<>();
     }
 
@@ -85,7 +85,7 @@ public class BasicGraph<T> {
         return (nodeList.containsKey(input_data));
     }
 
-    private GraphNode<T> getNode(T input_data) {   // Internal function for adding and removing edges
+    protected GraphNode<T> getNode(T input_data) {   // Internal function for adding and removing edges
         if (checkNodeexist(input_data)) {
             return this.nodeList.get(input_data);
         } else {

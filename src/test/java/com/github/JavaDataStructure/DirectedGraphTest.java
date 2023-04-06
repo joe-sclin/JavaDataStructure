@@ -8,10 +8,13 @@ import java.util.Set;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-class BasicGraphTest {
+class DirectedGraphTest {
+    /*
+    Not going to repeatedly testing Container constructors
+     */
     @Test
     public void TestConstructor() {     // Test of constructor and basic functions of Graph
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         assertThat(test.getSize(), is(equalTo(0)));
         assertThat(test.getNodeList(), is(equalTo(new HashSet<>())));
         assertThat(test.isEmpty(), is(equalTo(true)));
@@ -19,7 +22,7 @@ class BasicGraphTest {
 
     @Test
     public void TestAddNode() {     // Test of constructor and basic functions of Graph
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         test.addNode("ABC");
         assertThat(test.getSize(), is(equalTo(1)));
         assertThat(test.isEmpty(), is(equalTo(false)));
@@ -41,7 +44,7 @@ class BasicGraphTest {
 
     @Test
     public void TestRemoveNode() {
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         try {
             test.removeNode("ABC");    // Testing invalid egde cases
         } catch (IllegalArgumentException e) {
@@ -72,7 +75,7 @@ class BasicGraphTest {
 
     @Test
     public void TestgetEdge() {
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         test.addNode("ABC");
         assertThat(test.getEdge("ABC"), is(equalTo(new HashSet<>())));
         try {
@@ -84,7 +87,7 @@ class BasicGraphTest {
 
     @Test
     public void TestaddEdge() {
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         test.addNode("ABC");
         test.addNode("DEF");
         try {
@@ -110,7 +113,7 @@ class BasicGraphTest {
 
     @Test
     public void TestremoveEdge() {
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         test.addNode("ABC");
         test.addNode("DEF");
         test.addNode("GHI");
@@ -139,7 +142,7 @@ class BasicGraphTest {
     }
     @Test
     public void TestclearGraph(){
-        BasicGraph<String> test = new BasicGraph<>();
+        DirectedGraph<String> test = new DirectedGraph<>();
         test.addNode("ABC");
         test.addNode("DEF");
         test.addNode("GHI");
