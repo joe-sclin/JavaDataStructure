@@ -2,8 +2,7 @@ package com.github.JavaDataStructure;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,8 +25,7 @@ class DirectedGraphTest {
         test.addNode("ABC");
         assertThat(test.getSize(), is(equalTo(1)));
         assertThat(test.isEmpty(), is(equalTo(false)));
-        Set<String> testnode = new HashSet<>();
-        testnode.add("ABC");
+        Set<String> testnode = new HashSet<>(Arrays.asList("ABC"));
         assertThat(test.getNodeList(), is(equalTo(testnode)));      // Successfully to add a new node
         assertThat(test.checkNodeexist("ABC"), is(equalTo(true)));
         assertThat(test.checkNodeexist("A"), is(equalTo(false)));
@@ -56,7 +54,7 @@ class DirectedGraphTest {
         try {
             test.removeNode("A");    // Error message when invalid node content input
         } catch (IllegalArgumentException e) {
-            assertThat(e.getMessage(), is(equalTo("Graph does not contains this node.")));     // Testing invalid egde cases
+            assertThat(e.getMessage(), is(equalTo("Graph does not contain this node.")));     // Testing invalid egde cases
         }
         assertThat(test.getSize(), is(equalTo(3)));
         test.removeNode("ABC");
@@ -81,7 +79,7 @@ class DirectedGraphTest {
         try {
             test.getEdge("DEF");    // Error message when invalid node content input
         } catch (IllegalArgumentException e) {
-            assertThat(e.getMessage(), is(equalTo("Graph does not contains this node.")));     // Testing invalid egde cases
+            assertThat(e.getMessage(), is(equalTo("Graph does not contain this node.")));     // Testing invalid egde cases
         }
     }
 
@@ -101,8 +99,7 @@ class DirectedGraphTest {
             assertThat(e.getMessage(), is(equalTo("Graph does not contain node CBA")));     // Testing invalid egde cases
         }
         test.addEdge("ABC", "DEF");
-        Set<String> testedge = new HashSet<>();
-        testedge.add("DEF");
+        Set<String> testedge = new HashSet<>(Arrays.asList("DEF"));
         assertThat(test.getEdge("ABC"), is(equalTo(testedge)));      // Successfully to add a new edge
         assertThat(test.getEdge("DEF"), is(equalTo(new HashSet<>())));      // It is a directed Graph
         test.addEdge("ABC", "DEF");     // Adding duplicated edge has no effect
@@ -130,9 +127,7 @@ class DirectedGraphTest {
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), is(equalTo("No edges exists between node DEF and node ABC")));     // Testing invalid egde cases
         }
-        Set<String> testedge = new HashSet<>();
-        testedge.add("DEF");
-        testedge.add("GHI");
+        Set<String> testedge = new HashSet<>(Arrays.asList("DEF", "GHI"));
         assertThat(test.getEdge("ABC"), is(equalTo(testedge)));
         test.removeEdge("ABC", "DEF");
         testedge.remove("DEF");

@@ -18,9 +18,12 @@
 * Abstraction
   * BasicNode is an abstract class only containing attributes and functions without implementation
 
+## Additional demonstration: Recursive function in Data Structure Tree
+* Function RemoveNode and printTree were recursive to traverse nodes and their child nodes 
+
 ## Data structures
 - [X] Linked list
 - [X] Stack
 - [X] Queue
-- [X] Graph
-- [ ] Tree
+- [X] Graph (Directed and Undirected graph)
+- [X] Tree

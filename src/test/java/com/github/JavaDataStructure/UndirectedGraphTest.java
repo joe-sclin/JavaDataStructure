@@ -2,6 +2,7 @@ package com.github.JavaDataStructure;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,10 +30,8 @@ class UndirectedGraphTest {
             assertThat(e.getMessage(), is(equalTo("Graph does not contain node CBA")));     // Testing invalid egde cases
         }
         test.addEdge("ABC", "DEF");
-        Set<String> testedge = new HashSet<>();
-        testedge.add("DEF");
-        Set<String> testrevedge = new HashSet<>();
-        testrevedge.add("ABC");
+        Set<String> testedge = new HashSet<>(Arrays.asList("DEF"));
+        Set<String> testrevedge = new HashSet<>(Arrays.asList("ABC"));
         assertThat(test.getEdge("ABC"), is(equalTo(testedge)));      // Successfully to add a new edge
         assertThat(test.getEdge("DEF"), is(equalTo(testrevedge)));      // Reversed edge are also added
         test.addEdge("ABC", "DEF");     // Adding duplicated edge has no effect

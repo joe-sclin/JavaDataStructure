@@ -76,7 +76,7 @@ public class DirectedGraph<T> {
             if (checkNodeexist(input_data)) {
                 nodeList.remove(input_data);
             } else {
-                throw new IllegalArgumentException("Graph does not contains this node.");
+                throw new IllegalArgumentException("Graph does not contain this node.");
             }
         }
     }
@@ -89,13 +89,13 @@ public class DirectedGraph<T> {
         if (checkNodeexist(input_data)) {
             return this.nodeList.get(input_data);
         } else {
-            throw new IllegalArgumentException("Graph does not contains this node.");
+            throw new IllegalArgumentException("Graph does not contain this node.");
         }
     }
 
     public Set<T> getEdge(T input_data) {
         if (!checkNodeexist(input_data)) {
-            throw new IllegalArgumentException("Graph does not contains this node.");
+            throw new IllegalArgumentException("Graph does not contain this node.");
         } else {
             Set<T> output = new HashSet<>();
             for (GraphNode<T> target : getNode(input_data).getNodeSuccessor()) {
